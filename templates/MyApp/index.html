@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'MyApp/base.html' %}
+{% block  body_block %}
+    <h1>Employee--Information</h1>
+    <hr/>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>E-NUMBER</th>
+                <th>E-NAME</th>
+                <th>E-SALARY</th>
+                <th>E-ADDRESS</th>
+                <th colspan="2">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.eno  }}</td>
+                <td>{{ employee.ename }}</td>
+                <td>{{ employee.esal }}</td>
+                <td>{{ employee.eaddr }}</td>
+                <td><a href="/update/{{ employee.id }}">Update</a>|<a href="/delete/{{ employee.id }}">Delete</a></td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+
+    </table><br/><br/>
+    <a href="/create/"> Click to Enter New-Employee Record</a>
+{% endblock %}
